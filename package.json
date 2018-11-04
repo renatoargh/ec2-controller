@@ -1,0 +1,25 @@
+{
+  "name": "ec2-controller",
+  "version": "1.0.0",
+  "description": "Trivial EC2 controller",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/renatoargh/ec2-controller.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/renatoargh/ec2-controller/issues"
+  },
+  "homepage": "https://github.com/renatoargh/ec2-controller#readme",
+  "dependencies": {
+    "aws-sdk": "^2.348.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
+}

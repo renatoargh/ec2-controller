@@ -1,0 +1,21 @@
+extends layout
+block content
+  table.table.table-sm
+    thead
+      th: | Name
+      th: | State
+      th(style="text-align: center;"): | Action
+    tbody
+      each instance in instances
+        tr
+          td
+            strong: | #{instance.Name}
+          td
+            span(class=instance.StateClass)
+              | #{instance.State.Name}
+          td(style="text-align: center;")
+            if instance.NextAction
+              form(action=`/instances/${instance.InstanceId}/${instance.NextAction}`, method='POST')
+                input.btn.btn-sm(class=instance.ActionClass, type="submit", value=instance.NextAction.toUpperCase())
+            else
+              | —
