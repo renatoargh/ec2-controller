@@ -14,7 +14,6 @@ const ec2 = new Aws.EC2({
 
 const app = express()
 app.set('view engine', 'pug')
-app.use(express.static('static'))
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/', (req, res) => {
