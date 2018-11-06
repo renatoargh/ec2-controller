@@ -12,6 +12,11 @@ html
 				button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNavDropdown', aria-controls='navbarNavDropdown', aria-expanded='false', aria-label='Toggle navigation')
 					span.navbar-toggler-icon
 			
+				#navbarNavDropdown.collapse.navbar-collapse
+					ul.navbar-nav.navbar-right.ml-auto
+						li.nav-item
+							span USD #{billingTotal}
+
 			block content
 		
 		script(src="https://code.jquery.com/jquery-2.2.4.min.js", integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=", crossorigin="anonymous")
