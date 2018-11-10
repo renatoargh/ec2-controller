@@ -10,6 +10,7 @@ const s3 = new Aws.S3({apiVersion: '2006-03-01'})
 
 const app = express()
 app.set('view engine', 'pug')
+app.use(express.static('static'))
 app.use(bodyParser.urlencoded({extended: false}))
 
 app.get('/', (req, res) => {
@@ -84,6 +85,15 @@ app.get('/instances', [
     instances = instances.map(instance => {
       const tag = instance.Tags.find(t => t.Key === 'Name')
       instance.Name = tag && tag.Value
+
+      instance.StateIcon = {
+        'pending': 'yellow-circle.ico',
+        'running': 'green-circle.ico',
+        'shutting-down': 'yellow-circle.ico',
+        'terminated': 'red-circle.ico',
+        'stopping': 'yellow-circle.ico',
+        'stopped': 'red-circle.ico'
+      }[instance.State.Name]
 
       instance.StateClass = {
         'pending': 'text-warning',
