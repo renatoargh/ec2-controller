@@ -27,7 +27,8 @@ const getMonthlyBill = (req, res, next) => {
     Key: `${AWS_ACCOUNT_NUMBER}-aws-billing-csv-${year}-${month}.csv`
   }, (err, data) => {
     if(err) {
-      return next(err)
+      // Ignore errors getting billing info
+      return next()
     }
 
     const {Body: body} = data
